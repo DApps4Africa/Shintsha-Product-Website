@@ -7,8 +7,11 @@ import 'animate.css'
 import 'fullpage-vue/src/fullpage.css'
 import MagicGrid from 'vue-magic-grid'
 import VueFullpage from 'fullpage-vue'
+import BootstrapVue from 'bootstrap-vue'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 
-
+Vue.use(BootstrapVue)
 Vue.use(VueFullpage)
 Vue.use(MagicGrid)
 Vue.config.productionTip = false

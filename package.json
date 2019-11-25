@@ -9,9 +9,13 @@
   },
   "dependencies": {
     "animate.css": "^3.7.2",
+    "bootstrap": "^4.3.1",
+    "bootstrap-vue": "^2.1.0",
     "core-js": "^3.3.2",
     "fullpage-vue": "^1.9.0",
+    "leaflet": "^1.6.0",
     "pageable": "^0.6.8",
+    "sweetalert2": "^9.4.0",
     "vue": "^2.6.10",
     "vue-fullpage.js": "^0.1.4",
     "vue-magic-grid": "0.0.4",
