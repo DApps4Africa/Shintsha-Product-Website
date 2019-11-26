@@ -1,4 +1,4 @@
-# shintsha-website
+# Shintsha-Product-Website
 
 ## Project setup
 ```
