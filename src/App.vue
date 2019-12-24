@@ -23,16 +23,16 @@
         </v-menu>
     </v-app-bar>
 
-    <v-content justify="center" align="center">
-        <v-container class="fill-height spanwidth">
+    <v-content>
+        <v-container class="fill-height spanwidth" justify="center" align="center">
             <v-row>
-                <v-row class="above-the-fold">
+                <v-row>
                     <v-col class="atf-wrap" id="home">
                         <!--LEFT COL-->
-                        <div class="col-wrap col-wrap-flex">
+                        <v-flex class="col-wrap col-wrap-flex">
                             <div class="row-container">
                                 <div class="left-col-atf">
-                                    <div class="app-header">
+                                    <div class="app-header text-center" justify="center">
                                         <h1>Shintsha </h1>
                                         <h2>A Decentralized Online Market built on <i class="fa fa-ethereum" aria-hidden="true"></i>
                                             Ethereum Connecting Farmers with Buyers In Minutes!!!</h2>
@@ -51,35 +51,33 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </v-flex>
 
                         <!--RIGHT COL-->
-                        <v-row class="pad_left">
-                            <v-col>
-                                <div class="app-image">
-                                    <figure>
-                                        <div class="base">
-                                            <div class="buttons-left">
-                                                <div class="volume"></div>
-                                                <div class="assistant"></div>
-                                            </div>
-                                            <div class="lock"></div>
-                                            <div class="front">
-                                                <div class="top">
-                                                    <div class="sensor sensor-tiny"></div>
-                                                    <div class="sensor sensor-large"></div>
-                                                    <div class="sensor sensor-medium"></div>
-                                                    <div class="sensor sensor-tiny"></div>
-                                                    <div class="speaker"></div>
-                                                    <div class="camera"></div>
-                                                    <div class="sensor sensor-tiny"></div>
-                                                </div>
-                                                <div class="screen" v-ripple="{ center: true }"></div>
-                                            </div>
+                        <v-row class="pad_left " justify="center" align="center">
+                            <div class="app-image text-center">
+                                <figure>
+                                    <div class="base">
+                                        <div class="buttons-left">
+                                            <div class="volume"></div>
+                                            <div class="assistant"></div>
                                         </div>
-                                    </figure>
-                                </div>
-                            </v-col>
+                                        <div class="lock"></div>
+                                        <div class="front">
+                                            <div class="top">
+                                                <div class="sensor sensor-tiny"></div>
+                                                <div class="sensor sensor-large"></div>
+                                                <div class="sensor sensor-medium"></div>
+                                                <div class="sensor sensor-tiny"></div>
+                                                <div class="speaker"></div>
+                                                <div class="camera"></div>
+                                                <div class="sensor sensor-tiny"></div>
+                                            </div>
+                                            <div class="screen" v-ripple="{ center: true }"></div>
+                                        </div>
+                                    </div>
+                                </figure>
+                            </div>
                         </v-row>
                     </v-col>
                     <!--End Section 1 -->
@@ -87,7 +85,7 @@
 
                     <main id="btf-section" class="below-the-fold">
                         <section id="use_cases" class="why-our-app">
-                            <div class="woa-wrap">
+                            <div class="woa-wrap text-center">
                                 <div class="row-container">
                                     <div class="woa-title">
                                         <h1>How It Works?</h1>
@@ -108,7 +106,9 @@
                                             </div>
                                             <ul v-for="(item,i) in instructionsConsumers" :key="i">
                                                 <h3 class="h3">{{item.title}}</h3>
-                                                <li class="row-flex-it"><i :class="item.iconName"></i><span class="list-text">{{item.text}}</span></li>
+                                                <li class="row-flex-it"><i :class="item.iconName"></i>
+                                                    <p class="list-text ow">{{item.text}}</p>
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>
@@ -121,19 +121,19 @@
                     <v-col class="pad_top pad_left_small" id="use_cases">
                         <main id="btf-section" class="below-the-fold">
                             <section id="use-cases" class="why-our-app">
-                                <div class="woa-wrap">
+                                <div class="woa-wrap text-center">
                                     <div class="row-container">
                                         <div class="woa-title">
                                             <h2>Shintsha Use Cases</h2>
                                         </div>
-                                        <v-container class="col-container-woa card_title_cutsom">
-                                            <v-row cols="12" sm="4">
-                                                <v-col cols="12" sm="4" width="600px" v-for="(usecase, i) in usecases" :key="i">
-                                                    <v-card class="mx-auto"  v-ripple="{ center: true }">
-                                                        <v-img :src="usecase.img" height="300px" width="100%">
+                                        <v-container class="col-container-woa">
+                                            <v-row>
+                                                <v-col cols="12" md="4" v-for="(usecase, i) in usecases" :key="i">
+                                                    <v-card class="mx-auto" max-width="390" v-ripple="{ center: true }">
+                                                        <v-img :src="usecase.img" :aspect-ratio="16/9" height="300px" width="100%">
                                                         </v-img>
                                                         <div class="text-xs-center">
-                                                            <v-card-title class="card_title_style" style="width:100%; padding:0%;  display:inline-block; font-weight:bold; color:black;">
+                                                            <v-card-title class="card_title_style pa-2" style="width:100%; padding:0%;  display:inline-block; font-weight:bold; color:black;">
                                                                 {{usecase.title}}
                                                             </v-card-title>
                                                         </div>
@@ -206,11 +206,11 @@
                                     <v-stepper-items>
                                         <v-stepper-content step="1">
                                             <v-card class="mb-12" color="lighten-1">
-                                                <v-card-content>
+                                                <v-container>
                                                     <v-card-text class="text-center">
                                                         Please not this is a beta version of the steps required to use the <b>Shintsha</b> Platform in the near future these steps will change as this version is the initial MVP
                                                     </v-card-text>
-                                                </v-card-content>
+                                                </v-container>
                                             </v-card>
                                             <v-btn color="green" @click="whatsAppNext = 2">
                                                 Continue
@@ -219,7 +219,7 @@
                                         </v-stepper-content>
                                         <v-stepper-content step="2">
                                             <v-card class="mb-12" color="lighten-1">
-                                                <v-card-content>
+                                                <v-container>
                                                     <v-card-text class="text-center">
                                                         Save the following number
                                                         <br>
@@ -227,7 +227,7 @@
                                                         as a contact on your mobile device
                                                         Preferably as <b>Shintsha</b>
                                                     </v-card-text>
-                                                </v-card-content>
+                                                </v-container>
                                             </v-card>
                                             <v-btn color="green" @click="whatsAppNext = 3">
                                                 Continue
@@ -241,7 +241,7 @@
                                                         Once the number is saved send the <b>Join using-forth</b> command illustrated by the screenshot below
                                                     </v-card-text>
                                                     <v-card-text class="text-center">
-                                                        <v-img src="./assets/screenshots/join.jpg" />
+                                                        <v-img :src="require('./assets/screenshots/join.jpg')" />
                                                     </v-card-text>
                                                 </v-container>
                                             </v-card>
@@ -257,7 +257,7 @@
                                                         Once the number is saved send the following command <b>Menu</b> illustrated by the screenshot below
                                                     </v-card-text>
                                                     <v-card-text class="text-center">
-                                                        <v-img src="./assets/screenshots/activate.jpg" />
+                                                        <v-img :src="require('./assets/screenshots/activate.jpg')" />
                                                     </v-card-text>
                                                 </v-container>
                                             </v-card>
@@ -308,12 +308,12 @@ export default {
                 title: "Create Account"
             },
             {
-                text: "Farmers can use the Shintsha platform to register crops they have produced or harvested",
+                text: "Farmers can use the Shintsha platform to register their crops",
                 iconName: "fas fa-plus",
                 title: "Crop Listing"
             },
             {
-                text: "Farmers can interact with the different harvests they have listed on the Shintsha platform which interacts with blockchain",
+                text: "Farmers can interact with the different harvests or Produce listed on the Shintsha platform which interacts with blockchain",
                 iconName: "fas fa-exchange-alt",
                 title: "Access to Consumers"
             },
@@ -324,7 +324,7 @@ export default {
             }
         ],
         instructionsConsumers: [{
-                text: "Consumers can create an account on the Shintsha platform through the different supported mediums.",
+                text: "Consumers can create an account through<br> the supported mediums.",
                 iconName: "fas fa-user-edit",
                 title: "Create Account"
             },
@@ -430,28 +430,10 @@ export default {
 </script>
 
 <style lang="css" scoped>
-/**crisp-client styling start */
-.crisp-client .crisp-1rjpbb7 .crisp-17f70m7 {
-    background-image: linear-gradient(125deg, skyblue -10%, green 100%) !important;
-}
+/**Responsive text Styling start */
 
-.crisp-client .crisp-1rjpbb7 .crisp-ws3gf1,
-.crisp-client .crisp-1rjpbb7 .crisp-13h0akn:before,
-.crisp-client .crisp-1rjpbb7 .crisp-13h0akn:after {
-    background-color: green !important;
-}
+/**Responsive stylign end */
 
-.crisp-client .crisp-1rjpbb7 .crisp-gjhthi,
-.crisp-client .crisp-1rjpbb7 .crisp-1t1dtpc:hover,
-.crisp-client .crisp-1rjpbb7 .crisp-gjhthi:hover,
-.crisp-client .crisp-1rjpbb7 .crisp-1t1dtpc:active,
-.crisp-client .crisp-1rjpbb7 .crisp-gjhthi:active,
-.crisp-client .crisp-1rjpbb7 .crisp-1v3kwn:hover .crisp-oc2kqi,
-.crisp-client .crisp-1rjpbb7 .crisp-1v3kwn .crisp-oc2kqi:active {
-    background: green !important;
-}
-
-/**crisp-client styling end */
 /**Misc styling start */
 .green_blue {
     background-image: linear-gradient(45deg, skyblue, green);
@@ -544,29 +526,6 @@ html {
     margin: 0;
     padding: 0;
     max-width: 100%;
-}
-
-@media screen and (max-width: 768px) {
-
-    /**Misc Style Start */
-    /* Resize all other text elements when tablet and mobile */
-    html {
-        font-size: 60.5%;
-    }
-
-    .pad_left_small {
-        margin-left: 20px;
-    }
-
-}
-
-@media (min-width: 768px) {
-    .col-wrap-flex .row-container {
-        display: flex;
-        height: 100%;
-        width: 100%;
-    }
-
 }
 
 .body {
@@ -693,35 +652,6 @@ a {
 }
 
 /*WHEN DESKTOP MEDIA QUERY*/
-@media screen and (min-width: 768px) {
-    .atf-wrap {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-
-    }
-
-    .col-container-atf {
-        align-items: center;
-    }
-
-    .left-col-atf {
-        align-self: center;
-    }
-
-    .cta-container {
-        display: flex;
-        margin: 0;
-        padding: 0;
-    }
-
-    .ios-div {
-        width: 50%;
-    }
-
-    .playstore-div {
-        width: 50%;
-    }
-}
 
 /*WHEN DESKTOP MEDIA END*/
 
@@ -761,24 +691,6 @@ a {
     align-self: center;
     font-size: calc(20px + ((10vw - 320px) / (1200 - 320)));
     font-weight: bold;
-}
-
-@media (min-width: 768px) {
-    .woa-wrap {
-        padding: 50px 10px;
-    }
-
-    .col-container-woa {
-        display: flex;
-    }
-
-    .col-container-woa div {
-        width: 100%;
-    }
-
-    li.row-flex-it {
-        justify-content: center;
-    }
 }
 
 #center {
@@ -1051,8 +963,110 @@ a {
     transition: all 0.35s ease;
 }
 
-/**Profile card styling End */
-/**Contact  Styling Start */
+/**Wrap text Styling start */
+.ow {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+}
 
-/**Contact  styling End */
+/**Wrap text styling end */
+/**Profile card styling End */
+/**Media Queries Styling Start */
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 600px) {
+    .app-header h2 {
+        font-size: calc(13px + (45 - 40) * ((100vw - 320px) / (1200 - 320)));
+        margin-bottom: 20px;
+        margin-left: 20px;
+    }
+
+    .pad_left {
+        padding-left: 10px;
+    }
+
+    .list-text {
+        align-self: center;
+        font-weight: bold;
+    }
+
+    .ow {
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        hyphens: auto;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    /**Misc Style Start */
+    /* Resize all other text elements when tablet and mobile */
+    html {
+        font-size: 60.5%;
+    }
+
+    .pad_left_small {
+        margin-left: 20px;
+    }
+
+}
+
+@media (min-width: 768px) {
+    .col-wrap-flex .row-container {
+        display: flex;
+        height: 100%;
+        width: 100%;
+    }
+
+}
+
+@media screen and (min-width: 768px) {
+    .atf-wrap {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+    .col-container-atf {
+        align-items: center;
+    }
+
+    .left-col-atf {
+        align-self: center;
+    }
+
+    .cta-container {
+        display: flex;
+        margin: 0;
+        padding: 0;
+    }
+
+    .ios-div {
+        width: 50%;
+    }
+
+    .playstore-div {
+        width: 50%;
+    }
+}
+
+@media (min-width: 768px) {
+    .woa-wrap {
+        padding: 50px 10px;
+    }
+
+    .col-container-woa {
+        display: flex;
+    }
+
+    .col-container-woa div {
+        width: 100%;
+    }
+
+    li.row-flex-it {
+        justify-content: center;
+    }
+}
+
+/**Media Queriesstyling End */
 </style>
