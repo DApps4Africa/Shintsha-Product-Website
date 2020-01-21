@@ -2,11 +2,12 @@
 <v-app id="inspire">
     <v-app-bar app class="nav-header" flat dark>
         <v-btn class="websiteFont" v-ripple="{ center: true }" height="64px" text>
-            <v-toolbar-title class="websiteFont">Shintsha</v-toolbar-title>
+            <v-toolbar-title class="websiteFont" @click="$vuetify.goTo(home, options)">Shintsha</v-toolbar-title>
         </v-btn>
         <v-spacer></v-spacer>
         <v-toolbar-items class="hidden-sm-and-down">
-            <v-btn v-for="item in menu" :key="item.title" :to="item.to" :href="item.to" text>{{ item.title }}
+            <v-btn v-for="item in menu" :key="item.title" @click="$vuetify.goTo(item.to, options)" text>
+                {{ item.title }}
             </v-btn>
         </v-toolbar-items>
         <v-menu>
@@ -84,7 +85,7 @@
                     <!--Start Section 2 -->
 
                     <main id="btf-section" class="below-the-fold">
-                        <section id="use_cases" class="why-our-app">
+                        <section id="how_it_works" class="why-our-app">
                             <div class="woa-wrap text-center">
                                 <div class="row-container">
                                     <div class="woa-title">
@@ -119,8 +120,8 @@
                     <!--End Section 2 -->
                     <!--Start Section 3 -->
                     <v-col class="pad_top pad_left_small" id="use_cases">
-                        <main id="btf-section" class="below-the-fold">
-                            <section id="use-cases" class="why-our-app">
+                        <main id="btf-section">
+                            <section id="use_cases" class="why-our-app">
                                 <div class="woa-wrap text-center">
                                     <div class="row-container">
                                         <div class="woa-title">
@@ -128,9 +129,9 @@
                                         </div>
                                         <v-container class="col-container-woa">
                                             <v-row>
-                                                <v-col cols="12" md="4" v-for="(usecase, i) in usecases" :key="i">
+                                                <v-col cols="12" md="6" v-for="(usecase, i) in usecases" :key="i">
                                                     <v-card class="mx-auto" max-width="390" v-ripple="{ center: true }">
-                                                        <v-img :src="usecase.img" :aspect-ratio="16/9" height="300px" width="100%">
+                                                        <v-img :src="usecase.img"  height="300px" width="100%" contain>
                                                         </v-img>
                                                         <div class="text-xs-center">
                                                             <v-card-title class="card_title_style pa-2" style="width:100%; padding:0%;  display:inline-block; font-weight:bold; color:black;">
@@ -151,11 +152,20 @@
                         </main>
                     </v-col>
                     <!--End Section 3 -->
-
-                    <!--Start Section 4 -->
-
-                    <!--End Section 4 -->
                 </v-row>
+
+                <v-row class="green_blue">
+                    <v-col v-for="(accolade,n) in accoladesList " :key="n" class="d-flex child-flex pad_bot_top" cols="12" md="4">
+                        <v-card class="mx-auto" max-width="390" v-ripple="{ center: true }">
+                            <v-img :aspect-ratio="16/9" contain class="white--text align-end" height="250px" :src="accolade.image">
+                            </v-img>
+                            <v-card-text class="text--primary">
+                                <div class="acc_font_size"><a :href="accolade.url">{{accolade.text}}</a></div>
+                            </v-card-text>
+                        </v-card>
+                    </v-col>
+                </v-row>
+
                 <v-row>
                     <!--Start Footer -->
                     <v-footer dark style="width:100%;" padless>
@@ -208,7 +218,9 @@
                                             <v-card class="mb-12" color="lighten-1">
                                                 <v-container>
                                                     <v-card-text class="text-center">
-                                                        Please not this is a beta version of the steps required to use the <b>Shintsha</b> Platform in the near future these steps will change as this version is the initial MVP
+                                                        Please not this is a beta version of the steps required to
+                                                        use the <b>Shintsha</b> Platform in the near future these
+                                                        steps will change as this version is the initial MVP
                                                     </v-card-text>
                                                 </v-container>
                                             </v-card>
@@ -238,10 +250,11 @@
                                             <v-card class="mb-12" color="lighten-1">
                                                 <v-container>
                                                     <v-card-text class="text-center">
-                                                        Once the number is saved send the <b>Join using-forth</b> command illustrated by the screenshot below
+                                                        Once the number is saved send the <b>Join using-forth</b>
+                                                        command illustrated by the screenshot below
                                                     </v-card-text>
                                                     <v-card-text class="text-center">
-                                                        <v-img :src="require('./assets/screenshots/join.jpg')" />
+                                                        <v-img :src="require('@/assets/screenshots/join.jpg')" />
                                                     </v-card-text>
                                                 </v-container>
                                             </v-card>
@@ -254,10 +267,11 @@
                                             <v-card class="mb-12" color="lighten-1">
                                                 <v-container>
                                                     <v-card-text class="text-center">
-                                                        Once the number is saved send the following command <b>Menu</b> illustrated by the screenshot below
+                                                        Once the number is saved send the following command
+                                                        <b>Menu</b> illustrated by the screenshot below
                                                     </v-card-text>
                                                     <v-card-text class="text-center">
-                                                        <v-img :src="require('./assets/screenshots/activate.jpg')" />
+                                                        <v-img :src="require('@/assets/screenshots/activate.jpg')" />
                                                     </v-card-text>
                                                 </v-container>
                                             </v-card>
@@ -285,6 +299,7 @@
 
 <script>
 import Swal from 'sweetalert2'
+
 export default {
     components: {},
 
@@ -335,17 +350,22 @@ export default {
             }
         ],
         usecases: [{
-            img: "https://www.commercial-hydroponic-farming.com/wp-content/uploads/2014/02/quality-vegetable-crops-hydroponics.jpg",
+            img: require("@/assets/usecases/proof-of-crop.jpg"),
             text: "Shintsha Uses Smart Contracts to give transparency and proof of ownership of crops listed by Farmers, which enables trust amongt all actors of the shintsha platform value chain",
             title: "Proof of Crop"
         }, {
-            img: "https://www.dutchnews.nl/wpcms/wp-content/uploads/2016/10/corn-field-young-plants-farm.jpg",
+            img: require("@/assets/usecases/business-model.jpg"),
             text: "Shintsha allows the creation of new business models and decentralized finances such crowdfunding, and decentralised loans for farmers",
             title: "Business Models"
         }, {
-            img: "https://205324-619698-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2017/09/BlockchainMultichain-1-Cover.jpg",
+            img: require("@/assets/usecases/supply-chain1.jpg"),
             text: "Farmers who list their crops on Shintsha will allow consumers to easily trace the origin of the crop through different supported mediums",
             title: "Supply Chain"
+        },
+        {
+            img: require("@/assets/usecases/delivery.png"),
+            text: "Members of the Community can signup to deliver crops and earn",
+            title: "Community Driven Delivery Services"
         }],
         profiles: [{
                 name: "Owanate Amachree",
@@ -394,13 +414,40 @@ export default {
             }
         ],
         whatsAppSteps: false,
-        whatsAppNext: 0
-
+        whatsAppNext: 0,
+        accoladesList: [{
+                "text": "Overall Winners of the Road to Devcon Open Finance Bounty",
+                "image": require('@/assets/road_to_devcon1.png'),
+                "url": "https://gitcoin.co/hackathon/road-to-devcon/?"
+            },
+            {
+                "text": "Consensys Lab Realy Alumni",
+                "image": require('@/assets/labs.png'),
+                "url": "https://labs.consensys.net/relays"
+            },
+            {
+                "text": "Joint Winners of the Decentralised Research Award by Consensys Labs",
+                "image": require('@/assets/labs.png'),
+                "url": "https://github.com/ConsenSys/Road-To-Devcon-Relay/issues/3"
+            }
+        ],
+        duration: 600,
+        offset: 0,
+        easing: 'easeInOutQuad',
+        home: "#home"
     }),
     mounted() {
         this.warnUser()
     },
     methods: {
+
+        options() {
+            return {
+                duration: this.duration,
+                offset: this.offset,
+                easing: this.easing,
+            }
+        },
         warnUser() {
             Swal.fire({
                 title: 'Beta',
@@ -435,6 +482,19 @@ export default {
 /**Responsive stylign end */
 
 /**Misc styling start */
+.pad_bot_top {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.acc_font_size {
+    font-size: 20px;
+}
+
+.acc_font_size a {
+    color: black;
+}
+
 .green_blue {
     background-image: linear-gradient(45deg, skyblue, green);
 }
