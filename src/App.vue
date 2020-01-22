@@ -131,7 +131,7 @@
                                             <v-row>
                                                 <v-col cols="12" md="6" v-for="(usecase, i) in usecases" :key="i">
                                                     <v-card class="mx-auto" max-width="390" v-ripple="{ center: true }">
-                                                        <v-img :src="usecase.img"  height="300px" width="100%" contain>
+                                                        <v-img :src="usecase.img" height="300px" width="100%" contain>
                                                         </v-img>
                                                         <div class="text-xs-center">
                                                             <v-card-title class="card_title_style pa-2" style="width:100%; padding:0%;  display:inline-block; font-weight:bold; color:black;">
@@ -254,7 +254,7 @@
                                                         command illustrated by the screenshot below
                                                     </v-card-text>
                                                     <v-card-text class="text-center">
-                                                        <v-img :src="require('@/assets/screenshots/join.jpg')" />
+                                                        <v-img src="./assets/screenshots/join.jpg" />
                                                     </v-card-text>
                                                 </v-container>
                                             </v-card>
@@ -271,7 +271,7 @@
                                                         <b>Menu</b> illustrated by the screenshot below
                                                     </v-card-text>
                                                     <v-card-text class="text-center">
-                                                        <v-img :src="require('@/assets/screenshots/activate.jpg')" />
+                                                        <v-img src="./assets/screenshots/activate.jpg" />
                                                     </v-card-text>
                                                 </v-container>
                                             </v-card>
@@ -350,23 +350,24 @@ export default {
             }
         ],
         usecases: [{
-            img: require("@/assets/usecases/proof-of-crop.jpg"),
-            text: "Shintsha Uses Smart Contracts to give transparency and proof of ownership of crops listed by Farmers, which enables trust amongt all actors of the shintsha platform value chain",
-            title: "Proof of Crop"
-        }, {
-            img: require("@/assets/usecases/business-model.jpg"),
-            text: "Shintsha allows the creation of new business models and decentralized finances such crowdfunding, and decentralised loans for farmers",
-            title: "Business Models"
-        }, {
-            img: require("@/assets/usecases/supply-chain1.jpg"),
-            text: "Farmers who list their crops on Shintsha will allow consumers to easily trace the origin of the crop through different supported mediums",
-            title: "Supply Chain"
-        },
-        {
-            img: require("@/assets/usecases/delivery.png"),
-            text: "Members of the Community can signup to deliver crops and earn",
-            title: "Community Driven Delivery Services"
-        }],
+                img: "./assets/usecases/proof-of-crop.jpg",
+                text: "Shintsha Uses Smart Contracts to give transparency and proof of ownership of crops listed by Farmers, which enables trust amongt all actors of the shintsha platform value chain",
+                title: "Proof of Crop"
+            }, {
+                img: "./assets/usecases/business-model.jpg",
+                text: "Shintsha allows the creation of new business models and decentralized finances such crowdfunding, and decentralised loans for farmers",
+                title: "Business Models"
+            }, {
+                img: "./assets/usecases/supply-chain1.jpg",
+                text: "Farmers who list their crops on Shintsha will allow consumers to easily trace the origin of the crop through different supported mediums",
+                title: "Supply Chain"
+            },
+            {
+                img: "./assets/usecases/delivery.png",
+                text: "Members of the Community can signup to deliver crops and earn",
+                title: "Community Driven Delivery Services"
+            }
+        ],
         profiles: [{
                 name: "Owanate Amachree",
                 role: "Backend Developer and Technical Writer",
@@ -417,17 +418,17 @@ export default {
         whatsAppNext: 0,
         accoladesList: [{
                 "text": "Overall Winners of the Road to Devcon Open Finance Bounty",
-                "image": require('@/assets/road_to_devcon1.png'),
+                "image": './assets/road_to_devcon1.png',
                 "url": "https://gitcoin.co/hackathon/road-to-devcon/?"
             },
             {
                 "text": "Consensys Lab Realy Alumni",
-                "image": require('@/assets/labs.png'),
+                "image": './assets/labs.png',
                 "url": "https://labs.consensys.net/relays"
             },
             {
                 "text": "Joint Winners of the Decentralised Research Award by Consensys Labs",
-                "image": require('@/assets/labs.png'),
+                "image": './assets/labs.png',
                 "url": "https://github.com/ConsenSys/Road-To-Devcon-Relay/issues/3"
             }
         ],
