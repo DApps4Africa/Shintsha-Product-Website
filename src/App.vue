@@ -218,9 +218,9 @@
                                             <v-card class="mb-12" color="lighten-1">
                                                 <v-container>
                                                     <v-card-text class="text-center">
-                                                        Please not this is a beta version of the steps required to
+                                                        Please note this is a beta version of the steps required to
                                                         use the <b>Shintsha</b> Platform in the near future these
-                                                        steps will change as this version is the initial MVP
+                                                        steps will change as this version is the initial Prototype
                                                     </v-card-text>
                                                 </v-container>
                                             </v-card>
@@ -254,7 +254,7 @@
                                                         command illustrated by the screenshot below
                                                     </v-card-text>
                                                     <v-card-text class="text-center">
-                                                        <v-img src="./assets/screenshots/join.jpg" />
+                                                        <v-img :src="joinImg" />
                                                     </v-card-text>
                                                 </v-container>
                                             </v-card>
@@ -271,7 +271,7 @@
                                                         <b>Menu</b> illustrated by the screenshot below
                                                     </v-card-text>
                                                     <v-card-text class="text-center">
-                                                        <v-img src="./assets/screenshots/activate.jpg" />
+                                                        <v-img :src="activateImg" />
                                                     </v-card-text>
                                                 </v-container>
                                             </v-card>
@@ -416,6 +416,8 @@ export default {
         ],
         whatsAppSteps: false,
         whatsAppNext: 0,
+        joinImg: "./assets/screenshots/join.jpg",
+        activateImg: "./assets/screenshots/activate.jpg",
         accoladesList: [{
                 "text": "Overall Winners of the Road to Devcon Open Finance Bounty",
                 "image": './assets/road_to_devcon1.png',
